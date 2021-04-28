@@ -36,10 +36,6 @@ public class Order {
   @Column(name="gluten_free", nullable = false)
   private Boolean glutenFree;
 
-  @NotNull
-  @Column(name="vegan", nullable = false)
-  private Boolean vegan;
-
   @NotEmpty
   @Column(name="image_url", nullable = false)
   private String imageUrl;
@@ -82,14 +78,6 @@ public class Order {
 
   public void setGlutenFree(Boolean glutenFree) {
     this.glutenFree = glutenFree;
-  }
-
-  public Boolean getVegan() {
-    return vegan;
-  }
-
-  public void setVegan(Boolean vegan) {
-    this.vegan = vegan;
   }
 
   public String getImageUrl() {

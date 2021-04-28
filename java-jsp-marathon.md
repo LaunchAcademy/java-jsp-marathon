@@ -21,15 +21,20 @@ I want to fill out a form
 So that I can order baked goods
 ```
 
-1. Set up a page with the path `/orders/new`. On that page should be a form to place an order. The form should contain the following fields:
+We want to be able to save our orders in our database. A migration and an entity to help persist these orders have been provided.
+
+1. Create an `OrderService` DAO to handle our database operations. This file will require a new package under `orders`. Set up a method in this `Service` to persist a record to the database
+
+2. Create a `Controller` to route our traffic. Ensure that a user can visit `/orders/new`
+
+3. Create a new folder under `webapp` called `views` then under that `orders`. Within that `orders` folder create a JSP called `form.jsp` with a form to place an order. The form should contain the following fields:
   - Username
   - Item Name
   - Item Quantity (greater than 0 and less than or equal to 24)
-  - Gluten Free (y/n)
-  - Vegan (y/n)
+  - Gluten Free (true/false) - use a radio button
   - Item Image URL
-2. We want to be able to save our orders in our database. Add a migration and an entity to persist these orders to the database. All fields should be required.
-3. Create your POST route to receive the form submission. Orders should be saved to the database. Submitting the form should redirect us to the index page outlined below, at `/orders`. Don't worry about setting up this page or route just yet.
+
+4. Create your POST route to receive the form submission. Orders should be saved to the database using the `OrderService`. Submitting the form should redirect us to the index page outlined below, at `/orders`. Don't worry about setting up this page or route just yet
 
 ### Viewing Orders
 
@@ -39,7 +44,11 @@ I want to see the open orders
 So I can anticipate the delicious treats!
 ```
 
-4. Set up a page with path `/orders`. On that page should be a list of the item name and attached username for all orders. Each of the item names should be a link to `/orders?orderId=<primarykey>` where `<primarykey>` is a unique identifier for the order. The `/orders` page should also have a link to "Order Again" which takes the user to the order form at `/orders/new`.
+5. Update our `OrderService` to retrieve a list of the `orders` in the database
+
+6. Update our controller to handle for the path `/orders`. Ensure that the controller passes forward a list of all orders to the view using the `OrderService` to retrieve the data
+
+7. Create a new file `webapp/views/orders/index.jsp`. The JSP should display a list of the item name and attached username for all orders. Each of the item names should be a link to `/orders?orderId=<primarykey>` where `<primarykey>` is a unique identifier for the order. The `/orders` page should also have a link to "Order Again" which takes the user to the order form at `/orders/new`.
 
 ### Looking at order details
 
@@ -49,12 +58,16 @@ I want to see details on my item
 So I can drool in anticipation
 ```
 
-5. Clicking onto an item name on the `/orders` page should send me to a show page for that item. The show page should display the username tied to the order. It should also display the item's name, quantity, and photo. Finally, it should show options: display "GF" if `gluten free` is `y`, "V" if `vegan` is `y`, "NONE" if both are `n`.
+7. Update the `OrderService` to retrieve a single `Order` based on the `id` of the `Order`.
+
+8. Update our controller to handle for a query string at the end of `/orders`. Ensure that the view is passed information for the order matching an `id` provided in the query string using the `Order Service`. 
+
+9. Create a new file `webapp/views/orders/show.jsp`. Clicking onto an item name on the `/orders` page should send me to a show page for that item. The show page should display the username tied to the order. It should also display the item's name, quantity, and photo. Finally, it should show options: display "GF" if `gluten free` is `y`. If the item is not `gluten free` the page should not display `options`.
 
 
 ## Non-Core User Stories
 
-### User Errors
+You will need to read ahead to the material on `sessions` to complete the following:
 
 ### Viewing Only My Orders
 
@@ -94,7 +107,7 @@ So I can track their progress
 Acceptance Criteria:
 
 - The bakery order table is updated to include a status field
-- The status can be updated by navigating to `orders?orderId=<primarykey>/update`
+- The status can be updated by navigating to `orders/update?orderId=<primarykey>`
 - The order update page should display the order information as read only
 - The order update page should have a status input (field or radio buttons) that accepts the following values
   - Confirmed
