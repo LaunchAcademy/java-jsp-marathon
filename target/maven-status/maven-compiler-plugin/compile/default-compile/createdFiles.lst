@@ -1,0 +1,4 @@
+EMFListener.class
+com\launchacademy\orders\controllers\OrdersController.class
+com\launchacademy\orders\models\Order.class
+com\launchacademy\orders\services\OrderService.class
