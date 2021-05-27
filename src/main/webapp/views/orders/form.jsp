@@ -1,47 +1,42 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
 <html>
   <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>Add a New Bookmark</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Hello from JSP</title>
   </head>
   <body>
-    <form action="/orders" method="post">
-       <div>
-          <label for="username">Userame</label>
-          <input type="text" id="username" name="username" value="" />
-       </div>
-       <div>
-          <label for="itemName">Item Name</label>
-          <input type="text" id="itemName" name="itemName" value="" />
-       </div>
-       <div>
-          <label for="itemQuantity">Quantity</label>
-          <input type="number" id="itemQuantity" name="itemQuantity" value="" min="0" max="24"/>
-       </div>
-       <div>
-          Gluten Free:
-          <label for "glutenFree">Yes
-          <input type="radio" id="glutenFreeYes" name="glutenFree" value="true" />
-          </label>
-          <label for "glutenFree"> No
-          <input type="radio" id="glutenFreeNo" name="glutenFree" value="false" />
-          </label>
+    <form action="/orders" method="Post">
+      <h1>Create your order</h1>
 
-       </div>
-       <div>
-           <label for="vegan">Vegan
-           <input type="radio" id="veganYes" name="vegan" value="true" />
-           <input type="radio" id="veganNo" name="vegan" value="false" />
-           </label>
-      </div>
-       <div>
-         <label for="imageUrl">Item Image Url</label>
-         <input type="text" id="imageUrl" name="imageUrl" value="" />
-       </div>
+      <div>
+        <label for="username">Name:
+          <input type="text" name="username" id="username">
+        </label>
 
-       <div>
-        <input type="submit" value="Submit"/>
-       </div>
+        <label for="itemName">Item:
+          <input type="text" name="itemName" id="itemName">
+        </label>
+
+        <label for="itemQuantity">Quantity:
+          <input type="number" name="itemQuantity" id="itemQuantity">
+        </label>
+
+        <p>Gluten Free:</p>
+        <label for="glutenFree">True:
+          <input type="radio" name="glutenFree" id="glutenFree" value="true">
+        </label>
+
+        <label for="glutenFree">False:
+          <input type="radio" name="glutenFree" id="glutenFree" value="false">
+        </label><br>
+
+        <label for="imageUrl">Image URL:
+          <input type="text" name="imageUrl" id="imageUrl">
+        </label>
+
+        <input type="submit" value="Create Order">
+
     </form>
-   </body>
+  </body>
 </html>
