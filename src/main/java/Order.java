@@ -1,5 +1,3 @@
-package com.launchacademy.orders.models;
-
 import javax.validation.constraints.NotNull;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -35,10 +33,6 @@ public class Order {
   @NotNull
   @Column(name="gluten_free", nullable = false)
   private Boolean glutenFree;
-
-  @NotNull
-  @Column(name="vegan", nullable = false)
-  private Boolean vegan;
 
   @NotEmpty
   @Column(name="image_url", nullable = false)
@@ -82,14 +76,6 @@ public class Order {
 
   public void setGlutenFree(Boolean glutenFree) {
     this.glutenFree = glutenFree;
-  }
-
-  public Boolean getVegan() {
-    return vegan;
-  }
-
-  public void setVegan(Boolean vegan) {
-    this.vegan = vegan;
   }
 
   public String getImageUrl() {

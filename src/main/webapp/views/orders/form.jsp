@@ -1,47 +1,40 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
 <html>
   <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>Add a New Bookmark</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Cookies Order Form</title>
   </head>
   <body>
+    <h1>Add a New Order</h1>
     <form action="/orders" method="post">
-       <div>
-          <label for="username">Userame</label>
-          <input type="text" id="username" name="username" value="" />
-       </div>
-       <div>
-          <label for="itemName">Item Name</label>
-          <input type="text" id="itemName" name="itemName" value="" />
-       </div>
-       <div>
-          <label for="itemQuantity">Quantity</label>
-          <input type="number" id="itemQuantity" name="itemQuantity" value="" min="0" max="24"/>
-       </div>
-       <div>
-          Gluten Free:
-          <label for "glutenFree">Yes
-          <input type="radio" id="glutenFreeYes" name="glutenFree" value="true" />
-          </label>
-          <label for "glutenFree"> No
-          <input type="radio" id="glutenFreeNo" name="glutenFree" value="false" />
-          </label>
-
-       </div>
-       <div>
-           <label for="vegan">Vegan
-           <input type="radio" id="veganYes" name="vegan" value="true" />
-           <input type="radio" id="veganNo" name="vegan" value="false" />
-           </label>
+      <div>
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username" />
       </div>
-       <div>
-         <label for="imageUrl">Item Image Url</label>
-         <input type="text" id="imageUrl" name="imageUrl" value="" />
-       </div>
-
-       <div>
-        <input type="submit" value="Submit"/>
-       </div>
+      <div>
+        <label for="itemName">Item Name:</label>
+        <input type="text" name="itemName" id="itemName" />
+      </div>
+      <div>
+        <label for="itemQuantity">Item Quantity:</label>
+        <input type="number" name="itemQuantity" id="itemQuantity" />
+      </div>
+      <p>Gluten Free:</p>
+      <div>
+        <input type="radio" id="true" name="glutenFree" value="true" />
+        <label for="true">Yes</label>
+        <input type="radio" id="false" name="glutenFree" value="false" />
+        <label for="false">No</label>
+      </div>
+      <div>
+        <label for="imageUrl">Image Url:</label>
+        <input type="text" name="imageUrl" id="imageUrl" />
+      </div>
+      <div>
+        <input type="submit" value="Submit" />
+      </div>
     </form>
-   </body>
+  </body>
 </html>
+
